@@ -6,7 +6,7 @@ using std::format;
 
 namespace Tina
 {
-    const char* XRequestErrorCodeToString(int32 code)
+    const char* XRequestErrorCodeToString(const int32 code)
     {
         if(code >= 128 && code <= 255) 
         {

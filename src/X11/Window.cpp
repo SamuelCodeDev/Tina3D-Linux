@@ -45,7 +45,7 @@ namespace Tina
 		window = XCreateSimpleWindow(
 			display, 
 			RootWindow(display, screenNum), 
-			windowPosX, windowPosY, 
+			static_cast<int32>(windowPosX), static_cast<int32>(windowPosY), 
 			windowWidth, windowHeight,
 			1,
 			BlackPixel(display, screenNum),

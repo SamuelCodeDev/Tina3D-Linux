@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-//#include "Graphics.h"
+#include "Graphics.h"
 #include "Window.h"
 #include "Input.h"
 
@@ -10,7 +10,7 @@ namespace Tina
 	class Game
 	{
 	protected:
-		//static Graphics *& graphics;
+		static Graphics *& graphics;
 		static Window *& window;
 		static Input *& input;
 

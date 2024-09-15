@@ -1,4 +1,4 @@
-#include "GameDemo.h"
+#include "SimpleWindow.h"
 
 #ifdef _WIN32
 
@@ -25,7 +25,7 @@ auto APIENTRY WinMain(_In_ HINSTANCE hInstance,
         engine->window->LostFocus(Engine::Pause);
         engine->window->InFocus(Engine::Resume);
 
-        int32 exit = engine->Start(new GameDemo());
+        int32 exit = engine->Start(new SimpleWindow());
 
         delete engine;
 
@@ -49,7 +49,7 @@ auto APIENTRY WinMain(_In_ HINSTANCE hInstance,
     engine->window->LostFocus(Engine::Pause);
     engine->window->InFocus(Engine::Resume);
 
-    int32 exit = engine->Start(new GameDemo());
+    int32 exit = engine->Start(new SimpleWindow());
 
     delete engine;
 
@@ -74,7 +74,7 @@ auto main(int argc, char** argv) -> int
         engine->window->Size(800, 600);
         engine->window->Title("Triangle");
 
-        int32 exit = engine->Start(new GameDemo());
+        int32 exit = engine->Start(new SimpleWindow());
 
         delete engine;
 
@@ -92,7 +92,7 @@ auto main(int argc, char** argv) -> int
     engine->window->Size(800, 600);
     engine->window->Title("Triangle");
 
-    int32 exit = engine->Start(new GameDemo());
+    int32 exit = engine->Start(new SimpleWindow());
 
     delete engine;
 

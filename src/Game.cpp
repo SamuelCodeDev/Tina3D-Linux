@@ -4,7 +4,7 @@
 
 namespace Tina
 {
-    //Graphics *& Game::graphics = Engine::graphics;
+    Graphics *& Game::graphics = Engine::graphics;
     Window *& Game::window = Engine::window;
     Input *& Game::input = Engine::input;
 

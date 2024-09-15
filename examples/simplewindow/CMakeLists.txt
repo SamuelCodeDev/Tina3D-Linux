@@ -1,4 +1,4 @@
-set(SOURCE_FILES GameDemo.cpp
+set(SOURCE_FILES SimpleWindow.cpp
     main.cpp)
 
 if(WIN32)

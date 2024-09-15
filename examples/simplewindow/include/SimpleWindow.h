@@ -1,11 +1,11 @@
-#ifndef GAMEDEMO_H
-#define GAMEDEMO_H
+#ifndef SIMPLEWINDOW_H
+#define SIMPLEWINDOW_H
 
 #include "All.h"
 
 namespace Tina
 {
-    class GameDemo : public Game
+    class SimpleWindow : public Game
     {
     private:
 

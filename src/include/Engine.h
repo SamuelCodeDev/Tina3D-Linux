@@ -13,7 +13,7 @@ namespace Tina
         static inline Atom WM_DELETE_WINDOW;
 
     public:
-        //static Graphics * graphics;
+        static Graphics * graphics;
         static Window * window;
         static Input * input;
         static Game * game;

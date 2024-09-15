@@ -1,15 +1,20 @@
 #include "Graphics.h"
-#include "Error.h"
+#include "VulkanError.h"
+#include "Utils.h"
 
 namespace Tina
 {
-    Graphics::Graphics() noexcept : instance{}
+    Graphics::Graphics() noexcept 
+        : instance{},
+        GPUs{nullptr},
+        gpuCount{1}
     {
     }
 
     Graphics::~Graphics() noexcept
     {
         vkDestroyInstance(instance, nullptr);
+        SafeDeleteArray(GPUs);
     }
 
     void Graphics::Initialize(Window * window)
@@ -33,6 +38,10 @@ namespace Tina
         instInfo.enabledExtensionCount = 0;
         instInfo.ppEnabledExtensionNames = nullptr;
 
-        ThrowIfFailed(vkCreateInstance(&instInfo, nullptr, &instance));
+        VkThrowIfFailed(vkCreateInstance(&instInfo, nullptr, &instance));
+
+        VkThrowIfFailed(vkEnumeratePhysicalDevices(instance, &gpuCount, nullptr));
+        GPUs = new VkPhysicalDevice[gpuCount];
+        VkThrowIfFailed(vkEnumeratePhysicalDevices(instance, &gpuCount, GPUs));
     }
 }

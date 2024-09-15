@@ -4,9 +4,9 @@ if(ENABLE_X11)
 endif()
 
 #the graphics library
-#add_subdirectory(graphics)
+add_subdirectory(graphics)
 
-set(LIBRARYS windowLibrary)
+set(LIBRARYS windowLibrary graphics)
 
 add_library(window ${SOURCE_FILES})
 target_include_directories(window PUBLIC include)

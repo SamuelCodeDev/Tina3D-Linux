@@ -2,7 +2,7 @@
 
 namespace Tina
 {
-    //Graphics * Engine::graphics = nullptr;
+    Graphics * Engine::graphics = nullptr;
     Window * Engine::window = nullptr;
     Game * Engine::game = nullptr;
     Input * Engine::input = nullptr;
@@ -10,13 +10,13 @@ namespace Tina
     Engine::Engine() noexcept
     {
         window = new Window();
-        //graphics = new Graphics();
+        graphics = new Graphics();
     }
 
     Engine::~Engine() noexcept
     {
         delete game;
-        //delete graphics;
+        delete graphics;
         delete input;
         delete window;
     }
@@ -31,7 +31,7 @@ namespace Tina
         XSetWMProtocols(window->GetDisplay(), window->GetWindow(), &WM_DELETE_WINDOW, 1);
         
         input = new Input();
-        //graphics->Initialize(window);
+        graphics->Initialize(window);
 
         return Loop();
     }

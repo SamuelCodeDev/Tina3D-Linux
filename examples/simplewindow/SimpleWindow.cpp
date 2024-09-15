@@ -1,23 +1,23 @@
-#include "GameDemo.h"
+#include "SimpleWindow.h"
 #include "KeyCodes.h"
 
 namespace Tina
 {
-    void GameDemo::Init()
+    void SimpleWindow::Init()
     {
     }
     
-    void GameDemo::Update()
+    void SimpleWindow::Update()
     {
         if(input->CheckKeyPress(VK_ESCAPE) || input->CheckKeyPress(VK_Q))
             window->Close();
     }
 
-    void GameDemo::Finalize()
+    void SimpleWindow::Finalize()
     {
     }
     
-    void GameDemo::Draw()
+    void SimpleWindow::Draw()
     {
     }
 }

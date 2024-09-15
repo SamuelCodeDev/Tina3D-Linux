@@ -17,7 +17,7 @@ endif()
 
 add_subdirectory(src)
 
-set(TINA_LIBRARIES window)
+set(TINA_LIBRARIES window graphics)
 
 if(ENABLE_EXAMPLES)
     add_subdirectory(examples)

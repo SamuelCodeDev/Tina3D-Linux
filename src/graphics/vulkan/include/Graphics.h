@@ -11,6 +11,8 @@ namespace Tina
 	{
 	private:
         VkInstance instance;
+		VkPhysicalDevice * GPUs;
+		uint32 gpuCount;
 
 	public:
 		Graphics() noexcept;

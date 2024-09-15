@@ -1,7 +1,8 @@
 if(ENABLE_VULKAN)
     find_package(Vulkan REQUIRED)
     set(HEADER_FILES vulkan/include ${Vulkan_INCLUDE_DIRS})
-    set(SOURCE_FILES vulkan/Graphics.cpp)
+    set(SOURCE_FILES vulkan/Graphics.cpp
+        vulkan/VulkanError.cpp)
     set(LIBRARY Vulkan::Vulkan)
 endif()
 
