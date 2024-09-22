@@ -33,8 +33,8 @@ namespace Tina
 		windowCenterX = windowWidth / 2.0f;
 		windowCenterY = windowHeight / 2.0f;
 
-		windowPosX = screen->width / 2.0f - windowWidth / 2.0f;
-		windowPosY = screen->height / 2.0f - windowHeight / 2.0f;
+		windowPosX = (screen->width - windowWidth) / 2.0f;
+		windowPosY = (screen->height - windowHeight) / 2.0f;
 	}
 
 	bool Window::Create()
@@ -45,17 +45,15 @@ namespace Tina
 		window = XCreateSimpleWindow(
 			display, 
 			RootWindow(display, screenNum), 
-			static_cast<int32>(windowPosX), static_cast<int32>(windowPosY), 
+			int32(windowPosX), int32(windowPosY), 
 			windowWidth, windowHeight,
 			1,
 			BlackPixel(display, screenNum),
 			WhitePixel(display, screenNum)
 		);
-		XMapWindow(display, window);
 		XStoreName(display, window, windowTitle.c_str());
-
-		constexpr auto eventMask = KeyReleaseMask | KeyPressMask;
-		XSelectInput(display, window, eventMask);
+		XMapWindow(display, window);
+		XMoveWindow(display, window, windowPosX, windowPosY);
 
 		// Disable the resizing
 		{
@@ -65,6 +63,9 @@ namespace Tina
 			hints.min_height = hints.max_height = windowHeight;
 			XSetNormalHints(display, window, &hints);
 		}
+
+		constexpr auto eventMask = KeyReleaseMask | KeyPressMask;
+		XSelectInput(display, window, eventMask);
 
 		return true;
 	}
